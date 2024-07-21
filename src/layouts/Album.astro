@@ -1,0 +1,108 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+type Props = CollectionEntry<'catalog'>['data'];
+
+const {
+	title,
+	description,
+	artist,
+	pubDate,
+	artFront,
+	artBack,
+	aboutMusic,
+	aboutStudio,
+	aboutArtwork,
+	linkMp3,
+	linkFlac,
+	linkYoutube,
+	linkBandcamp,
+	linkSoundcloud,
+	linkSpotify,
+} = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 100%;
+				margin: 0;
+			}
+			.album__artwork {
+				display: flex;
+				max-width: 100%;
+			}
+			.album__artwork img {
+				display: inline-block;
+				margin: 0 auto;
+				width: 40%;
+				box-shadow: var(--box-shadow);
+			}
+			.album__content {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
+			.album__title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+			}
+			.album__title h1 {
+				margin: 0 0 0.5em 0;
+			}
+			.album__date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="album__artwork">
+					<img width={1020} height={510} src={artFront} alt="" />
+					<img width={1020} height={510} src={artBack} alt="" />
+				</div>
+				<div class="album__content">
+					<div class="album__title">
+						<h1>{title} by {artist}</h1>
+						<div class="album__date">
+							<FormattedDate date={pubDate} />
+						</div>
+					</div>
+					<slot />
+					<div class="album__links">
+						{linkMp3 && <a href={linkMp3}>MP3 download</a>}
+						{linkFlac && <a href={linkFlac}>FLAC download</a>}
+						{linkYoutube && <a href={linkYoutube} target="_blank">Listen on Youtube</a>}
+						{linkBandcamp && <a href={linkBandcamp} target="_blank">Listen on Bandcamp</a>}
+						{linkSoundcloud && <a href={linkSoundcloud} target="_blank">Listen on Soundcloud</a>}
+						{linkSpotify && <a href={linkSpotify} target="_blank">Listen on Spotify</a>}
+					</div>
+					<div class="album__about">
+						{aboutMusic && <p>{aboutMusic}</p>}
+						{aboutStudio && <p>{aboutStudio}</p>}
+						{aboutArtwork && <p>{aboutArtwork}</p>}
+					</div>
+				</div>
+			</article>
+			<a href="/">
+				volver
+			</a>
+		</main>
+		<Footer />
+	</body>
+</html>
