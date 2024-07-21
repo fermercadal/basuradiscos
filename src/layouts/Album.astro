@@ -52,11 +52,11 @@ const showLinks =
           <h3>Information</h3>
           {
             showInfo && (
-              <div>
+              <>
                 {aboutMusic && <p>{aboutMusic}</p>}
                 {aboutStudio && <p>{aboutStudio}</p>}
                 {aboutArtwork && <p>{aboutArtwork}</p>}
-              </div>
+              </>
             )
           }
           <time>Release date: <FormattedDate date={pubDate} /></time>
@@ -86,8 +86,10 @@ const showLinks =
           )
         }
       </article>
+
       <a href="/"> volver </a>
+
+      <Footer />
     </main>
-    <Footer />
   </body>
 </html>
