@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../FormattedDate.astro";
+
+type Props = CollectionEntry<"catalog">;
+
+const post = Astro.props;
+---
+
+<article>
+  <img width={720} height={360} src={post.data.artFront} alt="" />
+  <h3>
+    <span>{post.data.title}</span> by{" "}
+    <span>{post.data.artist}</span>
+  </h3>
+  <time>
+    <FormattedDate date={post.data.pubDate} />
+  </time>
+  <a href={`/${post.slug}/`}>+ info</a>
+</article>
