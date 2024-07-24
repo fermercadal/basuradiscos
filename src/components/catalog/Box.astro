@@ -10,7 +10,9 @@ type Props = {
 const { title, albums } = Astro.props;
 ---
 
-<section>
+<section class="p-6 bg-stone-100">
   <h2>{title}</h2>
-  {albums.map((post) => <Album {...post} />)}
+  <div class="flex flex-row flex-wrap justify-center gap-6">
+    {albums.map((post) => <Album {...post} />)}
+  </div>
 </section>
