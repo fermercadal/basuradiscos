@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 import FormattedDate from "../FormattedDate.astro";
 
 type Props = CollectionEntry<"catalog">;
@@ -7,14 +8,20 @@ type Props = CollectionEntry<"catalog">;
 const post = Astro.props;
 ---
 
-<article>
-  <img width={720} height={360} src={post.data.artFront} alt="" />
+<article class="grow-0 shrink-0 p-6">
+  <a class="inline-block mb-4" href={`/${post.slug}/`}>
+    <Image width={400} height={400} src={post.data.artFront} alt="" />
+  </a>
   <h3>
-    <span>{post.data.title}</span> by{" "}
-    <span>{post.data.artist}</span>
+    <strong class="text-xl">{post.data.title}</strong>
+    <div>{post.data.artist}</div>
+    <span></span>
   </h3>
   <time>
-    <FormattedDate date={post.data.pubDate} />
+    (<FormattedDate date={post.data.pubDate} />)
   </time>
-  <a href={`/${post.slug}/`}>+ info</a>
+  <div>
+    <a href={`/${post.data.linkMp3}/`}>Descargar</a>
+    <a href={`/${post.slug}/`}>+ info</a>
+  </div>
 </article>
