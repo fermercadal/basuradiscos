@@ -8,7 +8,6 @@ import Title from "../components/album/Title.astro";
 import Artwork from "../components/album/Artwork.astro";
 import Links from "../components/album/Links.astro";
 import Credits from "../components/album/Credits.astro";
-import FormattedDate from "../components/album/FormattedDate.astro";
 
 type Props = CollectionEntry<"catalog">["data"];
 
@@ -44,6 +43,12 @@ const showLinks =
       <article class="p-6 bg-stone-100">
         <Title title={title} artist={artist} />
         <Artwork artFront={artFront} artBack={artBack} />
+        <section class="pb-6">
+          <h3>Tracklist</h3>
+          <div class="*:list-decimal *:list-inside">
+            <slot />
+          </div>
+        </section>
         {
           showLinks && (
             <Links
@@ -68,7 +73,6 @@ const showLinks =
           aboutArtwork={aboutArtwork}
         />
       </article>
-
       <a
         class="inline-block p-2 bg-slate-800 text-slate-100 rounded-md m-6"
         href="/">volver</a
