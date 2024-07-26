@@ -43,12 +43,6 @@ const showLinks =
       <article class="p-6 bg-stone-100">
         <Title title={title} artist={artist} />
         <Artwork artFront={artFront} artBack={artBack} />
-        <section class="pb-6">
-          <h3>Tracklist</h3>
-          <div class="*:list-decimal *:list-inside">
-            <slot />
-          </div>
-        </section>
         {
           showLinks && (
             <Links
