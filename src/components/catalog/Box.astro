@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BoxItem from "./BoxItem.astro";
+
+type Props = {
+  title: string;
+  albums: CollectionEntry<"catalog">[];
+};
+
+const { title, albums } = Astro.props;
+---
+
+<section class="p-6 bg-stone-100">
+  <h2>{title}</h2>
+  <div class="flex flex-row flex-wrap justify-center gap-6">
+    {albums.map((post) => <BoxItem {...post} />)}
+  </div>
+</section>

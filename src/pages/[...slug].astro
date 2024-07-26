@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import Album from "../../layouts/Album.astro";
+import Album from "../layouts/Album.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("catalog");

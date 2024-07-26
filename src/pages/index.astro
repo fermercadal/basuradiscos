@@ -2,9 +2,10 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+import Box from "../components/catalog/Box.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
 
 const posts = (await getCollection("catalog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -29,106 +30,11 @@ const compilation = posts.filter(
   <body>
     <Header />
     <main>
-      <section>
-        <h2>Electronic</h2>
-        <ul>
-          {
-            electronic.map((post) => (
-              <li>
-                <img width={720} height={360} src={post.data.artFront} alt="" />
-                <h3>
-                  <span>{post.data.title}</span> by{" "}
-                  <span>{post.data.artist}</span>
-                </h3>
-                <time>
-                  <FormattedDate date={post.data.pubDate} />
-                </time>
-                <a href={`/catalog/${post.slug}/`}>+ info</a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-      <section>
-        <h2>Hip Hop</h2>
-        <ul>
-          {
-            hiphop.map((post) => (
-              <li>
-                <img width={720} height={360} src={post.data.artFront} alt="" />
-                <h3>
-                  <span>{post.data.title}</span> by{" "}
-                  <span>{post.data.artist}</span>
-                </h3>
-                <time>
-                  <FormattedDate date={post.data.pubDate} />
-                </time>
-                <a href={`/catalog/${post.slug}/`}>+ info</a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-      <section>
-        <h2>Unplugged</h2>
-        <ul>
-          {
-            unplugged.map((post) => (
-              <li>
-                <img width={720} height={360} src={post.data.artFront} alt="" />
-                <h3>
-                  <span>{post.data.title}</span> by{" "}
-                  <span>{post.data.artist}</span>
-                </h3>
-                <time>
-                  <FormattedDate date={post.data.pubDate} />
-                </time>
-                <a href={`/catalog/${post.slug}/`}>+ info</a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-      <section>
-        <h2>Rock</h2>
-        <ul>
-          {
-            rock.map((post) => (
-              <li>
-                <img width={720} height={360} src={post.data.artFront} alt="" />
-                <h3>
-                  <span>{post.data.title}</span> by{" "}
-                  <span>{post.data.artist}</span>
-                </h3>
-                <time>
-                  <FormattedDate date={post.data.pubDate} />
-                </time>
-                <a href={`/catalog/${post.slug}/`}>+ info</a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-      <section>
-        <h2>Compilations</h2>
-        <ul>
-          {
-            compilation.map((post) => (
-              <li>
-                <img width={720} height={360} src={post.data.artFront} alt="" />
-                <h3>
-                  <span>{post.data.title}</span> by{" "}
-                  <span>{post.data.artist}</span>
-                </h3>
-                <time>
-                  <FormattedDate date={post.data.pubDate} />
-                </time>
-                <a href={`/catalog/${post.slug}/`}>+ info</a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
+      <Box title="Electronic" albums={electronic} />
+      <Box title="Hip Hop" albums={hiphop} />
+      <Box title="Unplugged" albums={unplugged} />
+      <Box title="Rock" albums={rock} />
+      <Box title="Compilations" albums={compilation} />
     </main>
     <Footer />
   </body>
