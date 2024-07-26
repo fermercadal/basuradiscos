@@ -1,0 +1,26 @@
+---
+interface Props {
+  pubDate: Date;
+  aboutMusic?: string;
+  aboutStudio?: string;
+  aboutArtwork?: string;
+}
+
+const { pubDate, aboutMusic, aboutStudio, aboutArtwork } = Astro.props;
+---
+
+<section>
+  <h3 class="sr-only">Album credits</h3>
+  {aboutMusic && <p>{aboutMusic}</p>}
+  {aboutStudio && <p>{aboutStudio}</p>}
+  {aboutArtwork && <p>{aboutArtwork}</p>}
+  <p>
+    Release date: <time datetime={pubDate.toISOString()}>
+      {
+        pubDate.toLocaleDateString("en-us", {
+          year: "numeric",
+        })
+      }
+    </time>
+  </p>
+</section>
