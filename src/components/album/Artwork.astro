@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
   artFront: string;
   artBack: string;
@@ -8,9 +10,9 @@ const { artFront, artBack } = Astro.props;
 ---
 
 <section class="py-6">
-  <h3 class="sr-only">Artwork</h3>
+  <h3 class="sr-only">Arte de tapa</h3>
   <div class="flex flex-row flex-wrap gap-6">
-    <img width={400} height={400} src={artFront} alt="" />
-    <img width={400} height={400} src={artBack} alt="" />
+    <Image width={400} height={400} src={artFront} alt="" />
+    <Image width={400} height={400} src={artBack} alt="" />
   </div>
 </section>

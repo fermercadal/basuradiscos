@@ -1,4 +1,7 @@
 ---
+import LinkPrimary from "../ui/LinkPrimary.astro";
+import LinkSecondary from "../ui/LinkSecondary.astro";
+
 interface Props {
   linkMp3?: string;
   linkFlac?: string;
@@ -13,57 +16,17 @@ const { linkMp3, linkFlac, linkYoutube, linkBandcamp, linkSoundcloud } =
 
 <section class="pb-6">
   <h3 class="sr-only">Album links</h3>
-  {
-    linkMp3 && (
-      <a
-        class="inline-block p-2 bg-slate-800 text-slate-100 rounded-md"
-        href={linkMp3}
-      >
-        MP3 download
-      </a>
-    )
-  }
-  {
-    linkFlac && (
-      <a
-        class="inline-block p-2 bg-slate-800 text-slate-100 rounded-md"
-        href={linkFlac}
-      >
-        FLAC download
-      </a>
-    )
-  }
-  {
-    linkYoutube && (
-      <a
-        class="inline-block p-2 bg-slate-800 text-slate-100 rounded-md"
-        href={linkYoutube}
-        target="_blank"
-      >
-        Listen on Youtube
-      </a>
-    )
-  }
+  {linkMp3 && <LinkPrimary url={linkMp3} text="Descargar MP3" />}
+  {linkFlac && <LinkSecondary url={linkFlac} text="Descargar FLAC" />}
+  {linkYoutube && <LinkSecondary url={linkYoutube} text="Escuhar en Youtube" />}
   {
     linkBandcamp && (
-      <a
-        class="inline-block p-2 bg-slate-800 text-slate-100 rounded-md"
-        href={linkBandcamp}
-        target="_blank"
-      >
-        Listen on Bandcamp
-      </a>
+      <LinkSecondary url={linkBandcamp} text="Escuchar en Bandcamp" />
     )
   }
   {
     linkSoundcloud && (
-      <a
-        class="inline-block p-2 bg-slate-800 text-slate-100 rounded-md"
-        href={linkSoundcloud}
-        target="_blank"
-      >
-        Listen on Soundcloud
-      </a>
+      <LinkSecondary url={linkSoundcloud} text="Escuchar en Soundcloud" />
     )
   }
 </section>
