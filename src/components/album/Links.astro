@@ -16,17 +16,17 @@ const { linkMp3, linkFlac, linkYoutube, linkBandcamp, linkSoundcloud } =
 
 <section class="pb-6">
   <h3 class="sr-only">Album links</h3>
-  {linkMp3 && <LinkPrimary url={linkMp3} text="MP3 download" />}
-  {linkFlac && <LinkSecondary url={linkFlac} text="FLAC download" />}
-  {linkYoutube && <LinkSecondary url={linkYoutube} text="Listen on Youtube" />}
+  {linkMp3 && <LinkPrimary url={linkMp3} text="Descargar MP3" />}
+  {linkFlac && <LinkSecondary url={linkFlac} text="Descargar FLAC" />}
+  {linkYoutube && <LinkSecondary url={linkYoutube} text="Escuhar en Youtube" />}
   {
     linkBandcamp && (
-      <LinkSecondary url={linkBandcamp} text="Listen on Bandcamp" />
+      <LinkSecondary url={linkBandcamp} text="Escuchar en Bandcamp" />
     )
   }
   {
     linkSoundcloud && (
-      <LinkSecondary url={linkSoundcloud} text="Listen on Soundcloud" />
+      <LinkSecondary url={linkSoundcloud} text="Escuchar en Soundcloud" />
     )
   }
 </section>

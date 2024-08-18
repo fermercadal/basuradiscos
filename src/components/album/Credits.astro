@@ -10,12 +10,12 @@ const { pubDate, aboutMusic, aboutStudio, aboutArtwork } = Astro.props;
 ---
 
 <section>
-  <h3 class="sr-only">Album credits</h3>
+  <h3 class="sr-only">Información</h3>
   {aboutMusic && <p>{aboutMusic}</p>}
   {aboutStudio && <p>{aboutStudio}</p>}
   {aboutArtwork && <p>{aboutArtwork}</p>}
   <p>
-    Release date: <time datetime={pubDate.toISOString()}>
+    Fecha de lanzamiento: <time datetime={pubDate.toISOString()}>
       {
         pubDate.toLocaleDateString("en-us", {
           year: "numeric",
