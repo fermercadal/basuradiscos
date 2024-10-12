@@ -21,17 +21,29 @@ const { linkMp3, linkFlac, linkYoutube, linkBandcamp, linkSoundcloud } =
     {linkFlac && <LinkSecondary url={linkFlac} text="Descargar FLAC" />}
     {
       linkYoutube && (
-        <LinkSecondary url={linkYoutube} text="Escuhar en Youtube" />
+        <LinkSecondary
+          url={linkYoutube}
+          text="Escuhar en Youtube"
+          target="_blank"
+        />
       )
     }
     {
       linkBandcamp && (
-        <LinkSecondary url={linkBandcamp} text="Escuchar en Bandcamp" />
+        <LinkSecondary
+          url={linkBandcamp}
+          text="Escuchar en Bandcamp"
+          target="_blank"
+        />
       )
     }
     {
       linkSoundcloud && (
-        <LinkSecondary url={linkSoundcloud} text="Escuchar en Soundcloud" />
+        <LinkSecondary
+          url={linkSoundcloud}
+          text="Escuchar en Soundcloud"
+          target="_blank"
+        />
       )
     }
   </div>

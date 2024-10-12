@@ -2,14 +2,16 @@
 interface Props {
   url: string;
   text: string;
+  target?: string;
 }
 
-const { url, text } = Astro.props;
+const { url, text, target } = Astro.props;
 ---
 
 <a
   class="inline-block py-1 px-3 rounded border border-slate-700 bg-slate-100 hover:bg-slate-200 transition text-slate-700 font-semibold"
   href={url}
+  target={target}
 >
   {text}
 </a>
