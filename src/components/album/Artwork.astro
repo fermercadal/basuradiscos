@@ -11,8 +11,12 @@ const { artFront, artBack } = Astro.props;
 
 <section class="py-6">
   <h3 class="sr-only">Arte de tapa</h3>
-  <div class="flex flex-row flex-wrap gap-6">
-    <Image width={400} height={400} src={artFront} alt="" />
-    <Image width={400} height={400} src={artBack} alt="" />
+  <div class="flex gap-6">
+    <div class="w-full md:w-1/2">
+      <Image class="w-full" width={400} height={400} src={artFront} alt="" />
+    </div>
+    <div class="w-1/2 hidden md:block">
+      <Image class="w-full" width={400} height={400} src={artBack} alt="" />
+    </div>
   </div>
 </section>
