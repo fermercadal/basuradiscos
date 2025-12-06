@@ -10,7 +10,7 @@ type Props = CollectionEntry<"catalog">;
 const post = Astro.props;
 ---
 
-<article class="p-6">
+<article class="p-8">
   <a class="inline-block mb-4" href={`/${post.slug}/`}>
     <Image width={400} height={400} src={post.data.artFront} alt="" />
   </a>
