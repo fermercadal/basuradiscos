@@ -17,8 +17,8 @@ const { linkMp3, linkFlac, linkYoutube, linkBandcamp, linkSoundcloud } =
 <section class="pb-6">
   <h3 class="sr-only">Album links</h3>
   <div class="flex flex-col md:flex-row gap-3">
+    {linkFlac && <LinkPrimary url={linkFlac} text="Descargar FLAC" />}
     {linkMp3 && <LinkPrimary url={linkMp3} text="Descargar MP3" />}
-    {linkFlac && <LinkSecondary url={linkFlac} text="Descargar FLAC" />}
     {
       linkYoutube && (
         <LinkSecondary
