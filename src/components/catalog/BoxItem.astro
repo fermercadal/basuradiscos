@@ -2,9 +2,6 @@
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 
-import LinkPrimary from "../ui/LinkPrimary.astro";
-import LinkSecondary from "../ui/LinkSecondary.astro";
-
 type Props = CollectionEntry<"catalog">;
 
 const post = Astro.props;
@@ -13,16 +10,9 @@ const post = Astro.props;
 <article class="p-8">
   <a class="inline-block mb-4" href={`/${post.slug}/`}>
     <Image width={400} height={400} src={post.data.artFront} alt="" />
+    <h3 class="mt-4">
+      <strong class="text-xl">{post.data.title}</strong>
+      <div>{post.data.artist}</div>
+    </h3>
   </a>
-  <h3>
-    <strong class="text-xl">{post.data.title}</strong>
-    <div>{post.data.artist}</div>
-  </h3>
-  <div class="mt-4 flex flex-row gap-2">
-    <LinkSecondary url={`/${post.slug}/`} text="Abrir" />
-    <LinkPrimary
-      url={`/${post.data.linkFlac}/` || `/${post.data.linkMp3}/`}
-      text="Descargar"
-    />
-  </div>
 </article>
